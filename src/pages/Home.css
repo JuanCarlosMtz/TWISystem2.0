@@ -1,0 +1,64 @@
+.content{
+    margin-top: 3%;
+    margin-bottom: 2.5%;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-top: 0%;
+}
+
+.boton{
+    float: left;
+    width: 27.5%;
+    padding: 5px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.NavLog{
+    text-decoration: none;
+    color: white;
+}
+
+.botones{
+    margin-top: 10%;
+    margin-left: 10%;
+
+}
+
+.Stick{
+    width: 85%;
+    margin-left: 7.5%;
+    margin-bottom: 3%;
+}
+
+.column2{
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+.columnMoney{
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-top: 12.5%;
+    margin-left: 10%;
+}
+
+.columnScore{
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-top: 17.5%;
+    margin-left: 10%;
+}
+
+.estadoUsuario{
+    margin-top: 2.5%;
+}

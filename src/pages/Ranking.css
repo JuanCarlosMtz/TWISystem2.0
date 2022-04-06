@@ -1,11 +1,11 @@
-.headA{
+.head{
     margin-top: 2.5%;
     margin-bottom: 2.5%;
-    color: #f8f9fb;
+    color: #212429;
 }
 
-.containerTabA{
+.containerTab{
     border-radius: 15px;
-    background-color: #f8f8f8;
+    background-color: #212429;
     margin-bottom: 2%;
 }

@@ -10,9 +10,9 @@ export default class RankingA extends Component {
         return (
             <div>
                 <NavBarA />
-                <h1 className="head">Supervisores con mejor puntuación por planta</h1>
+                <h1 className="headA">Supervisores con mejor puntuación por planta</h1>
                 <Container>
-                <div className="containerTab">
+                <div className="containerTabA">
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
                     <Row>
                     <Col sm={3} className="tabs">

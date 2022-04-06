@@ -53,7 +53,7 @@ export default class RankingAContent extends Component {
                 </Row>
                         <Row>
                             <div className="tabla">
-                                <Table responsive striped bordered hover variant="dark">
+                                <Table responsive striped bordered hover variant="light">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -89,4 +89,3 @@ export default class RankingAContent extends Component {
         )
     }
 }
-        

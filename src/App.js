@@ -3,9 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Game from './pages/Game';
 import Ranking from './pages/Ranking';
-import Closet from './pages/Closet';
 import Contents from './pages/Contents';
-import Store from './pages/Store';
 import AboutTWI from './pages/AboutTWI';
 import LogPage from './pages/LogPage';
 import HomeA from './pages/HomeA';
@@ -32,10 +30,8 @@ function App() {
         <Route path='/game' element={<Game />} />
         <Route path='/ranking' element={<Ranking />} />
         <Route path='/rankinga' element={<RankingA />} />
-        <Route path='/closet' element={<Closet />} />
         <Route path='/contents' element={<Contents />} />
         <Route path='/viewdocuments' element={<ViewDocuments />} />
-        <Route path='/store' element={<Store />} />
         <Route path='/addtostore' element={<AddToStore />} />
         <Route path='/alterquizzes' element={<AlterQuizzes />} />
         <Route path='/aboutTWI' element={<AboutTWI />} />

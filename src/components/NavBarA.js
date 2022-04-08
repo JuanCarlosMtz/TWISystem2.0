@@ -26,13 +26,13 @@ export default class NavBarU extends Component {
                   Ranking
                 </Nav.Link>
                 <Nav.Link as={Link} to={"/analytics"}>
-                  Analíticos
+                  Dashboard
                 </Nav.Link>
                 <Nav.Link as={Link} to={"/viewdocuments"}>
-                  Revisar
+                  Entregables
                 </Nav.Link>
                 <Nav.Link as={Link} to={"/alterquizzes"}>
-                  Quizzes
+                  Modificación
                 </Nav.Link>
               </Nav>
               <Nav className="ms-auto">
@@ -46,10 +46,6 @@ export default class NavBarU extends Component {
                 <NavDropdown title="Administrador" id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to={"/"}>
                     Cerrar Sesión
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">
-                    Separated link
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>

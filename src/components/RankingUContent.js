@@ -1,5 +1,5 @@
 import React from "react";
-import "./RankingAContent.css";
+import "./RankingUContent.css";
 import User from "../img/stickMan.png";
 import pos1 from "../img/tier1.png";
 import pos2 from "../img/tier2.png";
@@ -7,7 +7,7 @@ import pos3 from "../img/tier3.png";
 import { Row, Col, Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
-function RankingAContent() {
+function RankingUContent() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -84,7 +84,7 @@ function RankingAContent() {
           </Row>
         </Col>
       </Row>
-      <Table striped bordered hover variant="light" className="tablaBD mx-auto">
+      <Table striped bordered hover variant="dark" className="tablaBD mx-auto">
         <thead>
           <tr>
             <th>#</th>
@@ -109,4 +109,4 @@ function RankingAContent() {
   );
 }
 
-export default RankingAContent;
+export default RankingUContent;

@@ -6,6 +6,15 @@
 }
 
 .item{
-    background-color: black;
+    background-color: #212429;
     color: white;
+}
+
+.botonCursos{
+    background-color: #c03939;
+    width: 100%;
+}
+
+.subir{
+    width: 100%;
 }

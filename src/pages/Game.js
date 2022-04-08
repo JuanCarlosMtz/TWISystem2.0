@@ -26,17 +26,9 @@ export default class Game extends Component {
                     </Carousel.Item>
                     <Carousel.Item>
                         <img className="d-block w-100" src={game2} alt="Fourth slide" />
-                        <Carousel.Caption>
-                            <h3>Fourth slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img className="d-block w-100" src={game21} alt="Fifth slide" />
-                        <Carousel.Caption>
-                            <h3>Fifth slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
                 </div>

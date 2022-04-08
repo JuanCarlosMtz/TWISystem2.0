@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavBarU from '../components/NavBarU';
 import ji from '../icons/ji.png';
 import jm from '../icons/jm.png';
 import jr from '../icons/jr.png';
 import './Contents.css'
-import { Container, Row, Col, Accordion, Button } from 'react-bootstrap'
+import { Container, Row, Col, Accordion, Button, Form } from 'react-bootstrap'
 
-
-export default class Contents extends Component {
-    render() {
+function Contents () {
         return (
             <div>
                 <NavBarU />
@@ -20,10 +18,19 @@ export default class Contents extends Component {
                                 <Accordion defaultActiveKey={['0']} alwaysOpen className="colElement">
                                     <Accordion.Item eventKey="0" className="item">
                                         <Accordion.Header>Aprender sobre Job Instructions</Accordion.Header>
-                                        <Accordion.Body>JI
+                                        <Accordion.Body>
+                                        <Button  variant="dark" className="botonCursos"> Curso 1  </Button>
+                                        <Button  variant="dark" className="botonCursos"> Curso 2  </Button>
+                                        <Button  variant="dark" className="botonCursos"> Curso 3  </Button>
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
+                                <div className="colElement">
+                                <Button  variant="dark" className="subir"> ↑ Subir entregable JI ↑  </Button>
+                                <Form.Group controlId="formFile" className="mb-3">
+                                    <Form.Control type="file" />
+                                </Form.Group>
+                                </div>
                         </Col>
                         <Col sm={4}>
                                 <img src={jm} width="100" height="100" className="d-inline-block align-top" alt="jm logo" />
@@ -31,10 +38,19 @@ export default class Contents extends Component {
                                 <Accordion defaultActiveKey={['0']} alwaysOpen className="colElement">
                                     <Accordion.Item eventKey="0" className="item">
                                         <Accordion.Header>Aprender sobre Job Methods</Accordion.Header>
-                                        <Accordion.Body>JM
+                                        <Accordion.Body>
+                                            <Button  variant="dark" className="botonCursos"> Curso 1  </Button>
+                                            <Button  variant="dark" className="botonCursos"> Curso 2  </Button>
+                                            <Button  variant="dark" className="botonCursos"> Curso 3  </Button>
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
+                                <div className="colElement">
+                                <Button  variant="dark" className="subir"> ↑ Subir entregable JM ↑  </Button>
+                                <Form.Group controlId="formFile" className="mb-3">
+                                    <Form.Control type="file" />
+                                </Form.Group>
+                                </div>
                         </Col>
                         <Col sm={4}>
                                 <img src={jr} width="100" height="100" className="d-inline-block align-top" alt="jr logo" />
@@ -42,14 +58,24 @@ export default class Contents extends Component {
                                 <Accordion defaultActiveKey={['0']} alwaysOpen className="colElement"> 
                                     <Accordion.Item eventKey="0" className="item">
                                         <Accordion.Header>Aprender sobre Job Relations</Accordion.Header>
-                                        <Accordion.Body>JR
-                                        </Accordion.Body>
+                                        <Accordion.Body>
+                                            <Button  variant="dark" className="botonCursos"> Curso 1  </Button>
+                                            <Button  variant="dark" className="botonCursos"> Curso 2  </Button>
+                                            <Button  variant="dark" className="botonCursos"> Curso 3  </Button>
+                                            </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
+                                <div className="colElement">
+                                <Button  variant="dark" className="subir"> ↑ Subir entregable JR ↑  </Button>
+                                <Form.Group controlId="formFile" className="mb-3">
+                                    <Form.Control type="file" />
+                                </Form.Group>
+                                </div>
                         </Col>
                     </Row>
                 </Container>
             </div>
-        )
-    }
+        );
 }
+
+export default Contents;

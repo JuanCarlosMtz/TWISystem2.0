@@ -1,11 +1,10 @@
-.head{
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
-    color: #212429;
-}
-
 .containerTab{
     border-radius: 15px;
-    background-color: #212429;
-    margin-bottom: 2%;
+    background-color: rgba(236, 72, 72, 0.367);
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.colContent {
+    width: 200%;
 }

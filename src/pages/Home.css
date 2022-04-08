@@ -5,17 +5,19 @@
 
 .column {
     float: left;
-    width: 33.33%;
+    width: 30%;
     padding: 5px;
-    margin-top: 0%;
+    margin-top: 50%;
 }
 
 .boton{
-    float: left;
-    width: 27.5%;
+    position: center;
+    width: 130%;
+    height: 70px;
     padding: 5px;
     margin-left: 2.5%;
     margin-right: 2.5%;
+    font-size: 40px;
 }
 
 .NavLog{
@@ -24,22 +26,38 @@
 }
 
 .botones{
-    margin-top: 10%;
+    margin-top: 50%;
     margin-left: 10%;
 
 }
 
 .Stick{
-    width: 85%;
-    margin-left: 7.5%;
+    margin-top: 10%;
+    width: 120%;
     margin-bottom: 3%;
+
 }
 
 .column2{
     float: left;
-    width: 33.33%;
+    width: 40%;
     padding: 5px;
     margin-top: 10%;
+    margin-left: 10%;
+}
+
+.column3{
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 10%;
+    position: center;
+}
+
+.column4{
+    float: left;
+    width: 100%;
+    padding: 5px;
+    margin-top: 200%;
     margin-left: 10%;
 }
 
@@ -60,5 +78,58 @@
 }
 
 .estadoUsuario{
-    margin-top: 2.5%;
+    margin-top: 30%;
 }
+
+.skills{
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+  }
+  
+  .skill-name{
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 20px 0;
+  }
+  
+  .skill-bar{
+    height: 20px;
+    background: #cacaca;
+    border-radius: 8px;
+  }
+  
+  .skill-per{
+    height: 20px;
+    background-color: #0fbcf9;
+    border-radius: 8px;
+    width: 0;
+    transition: 1s linear;
+    position: relative;
+  }
+  
+  .skill-per::before{
+    content: attr(per);
+    position: absolute;
+    padding: 4px 6px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 4px;
+    top: -35px;
+    right: 0;
+    transform: translateX(50%);
+  }
+  
+  .skill-per::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    top: -16px;
+    right: 0;
+    transform: translateX(50%) rotate(45deg);
+    border-radius: 2px;
+  }

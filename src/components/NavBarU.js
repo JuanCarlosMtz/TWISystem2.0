@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TWIRed from '../logos/twiRed.png';
 import UserIcon from '../icons/userIconGray.png';
-import './NavBarU.css'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
  
@@ -23,7 +22,9 @@ export default class NavBarU extends Component {
                                 <Nav.Link as={Link} to={"/abouttwi"}>Sobre TWI</Nav.Link>
                             </Nav>
                             <Nav className="ms-auto">
+                                <div>
                                 <img src={UserIcon} width="45" height="45" className="d-inline-block align-top" alt="UserGray logo" />
+                                </div>
                                 <NavDropdown title="Supervisor" id="basic-nav-dropdown">
                                     <NavDropdown.Item as={Link} to={"/"}>Cerrar Sesión</NavDropdown.Item>
                                 </NavDropdown>

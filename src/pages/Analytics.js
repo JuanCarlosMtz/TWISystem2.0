@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import NavBarA from "../components/NavBarA";
+import './Analytics.css'
 
 export default class Analytics extends Component {
   render() {
     return (
       <div>
         <NavBarA />
-        <br />
-        <br />
-        <div>
+        <div className="board">
           <iframe
             height={600}
             width={900}

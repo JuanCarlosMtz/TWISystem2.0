@@ -35,7 +35,9 @@ export default class NavBarU extends Component {
                   Modificación
                 </Nav.Link>
               </Nav>
+              
               <Nav className="ms-auto">
+              <div>
                 <img
                   src={UserIcon}
                   width="45"
@@ -43,12 +45,15 @@ export default class NavBarU extends Component {
                   className="d-inline-block align-top"
                   alt="UserBlack logo"
                 />
+                </div>
                 <NavDropdown title="Administrador" id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to={"/"}>
                     Cerrar Sesión
                   </NavDropdown.Item>
                 </NavDropdown>
+                
               </Nav>
+              
             </Navbar.Collapse>
           </Container>
         </Navbar>

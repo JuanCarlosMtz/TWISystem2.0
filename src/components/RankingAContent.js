@@ -1,72 +1,66 @@
 import React from "react";
-import "./RankingAContent.css";
+import "./RankingContent.css";
 import User from "../img/stickMan.png";
 import pos1 from "../img/tier1.png";
 import pos2 from "../img/tier2.png";
 import pos3 from "../img/tier3.png";
 import { Row, Col, Table } from "react-bootstrap";
-import { useState, useEffect } from "react";
 
 function RankingAContent() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  
+  const [data, setData] = React.useState([])
+  const [error, setError] = React.useState("")
+  const [loading, setLoading] = React.useState(true)
 
-  useEffect(() => {
-    fetch(`http://localhost:3001/ranking`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((actualData) => {
-        setData(actualData);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setData(null);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+  React.useEffect(() => {
+    const url = 'http://localhost:3001/ranking';
+    fetch(url)
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((json) => {
+      setData(json);
+      setError("")
+    })
+    .catch((err) => {
+      setError(err)
+      setData(null)
+    })
+    .finally(() => {
+      setLoading(false)
+    })
+    
+  }, [])
 
   return (
     <div>
-      <br />
-      <h1>Ranking (Monterrey)</h1>
-      {loading && <div>A moment please...</div>}
-      {error && (
-        <div>{`There is a problem fetching the post data - ${error}`}</div>
-      )}
-      <Row className="avatares mx-auto">
+      <h1>Ranking</h1>
+      {loading && "Cargando información"}
+      {error && <div> {`Error al cargar la información ${error}`} </div>}
+      <Row className="avatares">
         <Col sm={4}>
           <Row>
             <h4>David</h4>
             <div className="user2">
-              <img ClassName="img-fluid" className="mx-auto" src={User} />
+              <img className="img-fluid" className="mx-auto" src={User} />
             </div>
           </Row>
           <Row>
             <div className="pos2">
-              <img ClassName="img-fluid" className="mx-auto" src={pos2} />
+              <img className="img-fluid" className="mx-auto" src={pos2} />
             </div>
           </Row>
         </Col>
         <Col sm={4}>
           <Row>
-            <h4>Sergio</h4>
+            <h4>S</h4>
             <div className="user1">
-              <img ClassName="img-fluid" className="mx-auto" src={User} />
+              <img className="img-fluid" className="mx-auto" src={User} />
             </div>
           </Row>
           <Row>
             <div className="pos1">
-              <img ClassName="img-fluid" className="mx-auto" src={pos1} />
+              <img className="img-fluid" className="mx-auto" src={pos1} />
             </div>
           </Row>
         </Col>
@@ -74,33 +68,34 @@ function RankingAContent() {
           <Row>
             <h4>Jorge</h4>
             <div className="user3">
-              <img ClassName="img-fluid" className="mx-auto" src={User} />
+              <img className="img-fluid" className="mx-auto" src={User} />
             </div>
           </Row>
           <Row>
             <div className="pos3">
-              <img ClassName="img-fluid" className="mx-auto" src={pos3} />
+              <img className="img-fluid" className="mx-auto" src={pos3} />
             </div>
           </Row>
         </Col>
       </Row>
-      <Table striped bordered hover variant="light" className="tablaBD mx-auto">
+      <Table striped bordered hover variant="light" className="tabla">
         <thead>
           <tr>
             <th>#</th>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Planta</th>
             <th>Puntaje</th>
           </tr>
         </thead>
-        {data &&
-          data.ranking.map(({ idranking, nombre, apellido, puntaje }) => (
+        {data.map(({ id, nombre, apellido, planta, total_pts }) => (
             <tbody>
               <tr>
-                <td>{idranking}</td>
+                <td>#</td>
                 <td>{nombre}</td>
                 <td>{apellido}</td>
-                <td>{puntaje}</td>
+                <td>{planta}</td>
+                <td>{total_pts}</td>
               </tr>
             </tbody>
           ))}

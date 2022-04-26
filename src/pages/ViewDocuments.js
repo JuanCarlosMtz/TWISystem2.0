@@ -5,44 +5,58 @@ import Tables from '../components/DeliveredTables.js';
 import { Row, Col, Container, Tab, Nav } from "react-bootstrap";
 
 function ViewDocuments () {
+
+    const [data, setData] = React.useState([])
+    const [error, setError] = React.useState("")
+    const [loading, setLoading] = React.useState(true)
+
+    React.useEffect(() => {
+      const url = 'http://localhost:3001/ranking';
+      fetch(url)
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((json) => {
+        setData(json);
+        setError("")
+      })
+      .catch((err) => {
+        setError(err)
+        setData(null)
+      })
+      .finally(() => {
+        setLoading(false)
+      }) 
+  }, [])
+
     return (
             <div>
                 <NavBarA />
                 <h1 className="headE">Revisar entregables por supervisor</h1>
+                {loading && "Cargando información"}
+                {error && <div> {`Error al cargar la información ${error}`} </div>}
                 <Container>
                 <div className="containerTabE">
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
                     <Row>
                     <Col sm={3} className="tabs">
+                        <div className="scrollable-div">
                             <Nav variant="pills" className="flex-column">
-                                <Nav.Item>
-                                    <Nav.Link eventKey="first">[Usuario1]</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="second">[Usuario2]</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="third">[Usuario3]</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="fourth">[Usuario4]</Nav.Link>
-                                </Nav.Item>
+                                {data.map(({ id, nombre, apellido }) => (
+                                    <Nav.Item>
+                                        <Nav.Link eventKey={id}>{apellido} {nombre}</Nav.Link>
+                                    </Nav.Item>
+                                ))}
                             </Nav>
+                        </div>
                     </Col>
                     <Col sm={9}>
                         <Tab.Content>
-                            <Tab.Pane eventKey="first">
-                                <Tables />
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="second">
-                                <Tables />
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="third">
-                                <Tables />
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="fourth">
-                                <Tables />
-                            </Tab.Pane>
+                            {data.map(({ id }) => (
+                                <Tab.Pane eventKey={id}>
+                                    <Tables />
+                                </Tab.Pane>
+                            ))}
                         </Tab.Content>
                     </Col>
                 </Row>

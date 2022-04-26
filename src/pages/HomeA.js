@@ -5,7 +5,6 @@ import User from "../img/stickMan.png";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer.js";
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>;
 
 export default class HomeA extends Component {
   render() {

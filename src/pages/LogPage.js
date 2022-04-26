@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import Logo from "../logos/Escuela Tecnica.png";
 import "./LogPage.css";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-export default class LogPage extends Component {
-  render() {
+function LogPage () {
     return (
       <div>
         <div className="mx-auto">
@@ -49,5 +48,6 @@ export default class LogPage extends Component {
         </div>
       </div>
     );
-  }
 }
+
+export default LogPage;

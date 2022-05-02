@@ -8,7 +8,7 @@ import { Row, Col, Table } from "react-bootstrap";
 
 function RankingUContent() {
 
-  const [data, setData] = React.useState([])
+  const [data, setData] = React.useState([{"nombre":"pos1"},{"nombre":"pos2"},{"nombre":"pos3"}])
   const [error, setError] = React.useState("")
   const [loading, setLoading] = React.useState(true)
 
@@ -31,7 +31,6 @@ function RankingUContent() {
     })
     
   }, [])
-  
 
   return (
     <div>
@@ -41,9 +40,7 @@ function RankingUContent() {
       <Row className="avatares">
         <Col sm={4}>
           <Row>
-            <div>
-            </div>
-            <h4>David</h4>
+            <h4>{data[1].nombre}</h4>
             <div className="user2">
               <img className="img-fluid" className="mx-auto" src={User} />
             </div>
@@ -56,7 +53,7 @@ function RankingUContent() {
         </Col>
         <Col sm={4}>
           <Row>
-            <h4>S</h4>
+            <h4>{data[0].nombre}</h4>
             <div className="user1">
               <img className="img-fluid" className="mx-auto" src={User} />
             </div>
@@ -69,7 +66,7 @@ function RankingUContent() {
         </Col>
         <Col sm={4}>
           <Row>
-            <h4>Jorge</h4>
+            <h4>{data[2].nombre}</h4>
             <div className="user3">
               <img className="img-fluid" className="mx-auto" src={User} />
             </div>
@@ -91,20 +88,20 @@ function RankingUContent() {
             <th>Puntaje</th>
           </tr>
         </thead>
-        {data && data.map(({ id, nombre, apellido, planta, total_pts }) => (
-            <tbody>
-              <tr>
-                <td>#</td>
-                <td>{nombre}</td>
-                <td>{apellido}</td>
-                <td>{planta}</td>
-                <td>{total_pts}</td>
-              </tr>
-            </tbody>
-          ))}
+        {data && data.map(({ position, nombre, apellido, planta, total_pts }) => (
+          <tbody>
+            <tr>
+              <td>{position}</td>
+              <td>{nombre}</td>
+              <td>{apellido}</td>
+              <td>{planta}</td>
+              <td>{total_pts}</td>
+            </tr>
+          </tbody>
+        ))}
       </Table>
     </div>
   );
-}
+};
 
 export default RankingUContent;

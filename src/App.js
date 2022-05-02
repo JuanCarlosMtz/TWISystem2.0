@@ -7,7 +7,6 @@ import Contents from './pages/Contents';
 import AboutTWI from './pages/AboutTWI';
 import LogPage from './pages/LogPage';
 import HomeA from './pages/HomeA';
-import AddToStore from './pages/AddToStore';
 import AlterQuizzes from './pages/AlterQuizzes';
 import Analytics from './pages/Analytics';
 import RankingA from './pages/RankingA';
@@ -32,7 +31,6 @@ function App() {
         <Route path='/rankinga' element={<RankingA />} />
         <Route path='/contents' element={<Contents />} />
         <Route path='/viewdocuments' element={<ViewDocuments />} />
-        <Route path='/addtostore' element={<AddToStore />} />
         <Route path='/alterquizzes' element={<AlterQuizzes />} />
         <Route path='/aboutTWI' element={<AboutTWI />} />
         </Routes>

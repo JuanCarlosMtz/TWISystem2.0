@@ -1,4 +1,4 @@
-.colElementA{
+.colElementA {
   margin-top: 7%;
   margin-left: 3%;
   margin-right: 3%;
@@ -6,22 +6,22 @@
   color: #000000;
 }
 
-.itemA{
+.itemA {
   background-color: #f8f8f8;
   color: white;
 }
 
-.botonCursosA{
+.botonCursosA {
   background-color: #c03939;
   width: 100%;
 }
 
-.headA{
+.headA {
   margin-top: 2.5%;
   color: #f8f9fb;
 }
 
-.columnaA{
+.columnaA {
   background-color: #f8f9fb;
   border-radius: 15px;
   margin-left: 1%;
@@ -31,6 +31,6 @@
   margin-bottom: 3%;
 }
 
-.d-inline-block align-top{
+.d-inline-block align-top {
   margin-top: 5%;
 }

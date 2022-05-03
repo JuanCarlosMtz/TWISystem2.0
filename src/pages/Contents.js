@@ -4,7 +4,7 @@ import ji from '../icons/ji.png';
 import jm from '../icons/jm.png';
 import jr from '../icons/jr.png';
 import './Contents.css'
-import { Container, Row, Col, Accordion, Button, Form, Offcanvas } from 'react-bootstrap'
+import { Container, Row, Col, Accordion, Button, Form, Offcanvas, Table } from 'react-bootstrap'
 import Cookies from 'universal-cookie';
 
 function Contents () {
@@ -95,7 +95,7 @@ function Contents () {
 
   function updateProcess()
   {
-    let item={id_: id, minsParo_: ((minsParoAntes-minsParoDespues)/minsParoAntes*100), envases_: ((envasesAntes-envasesDespues)/envasesAntes*100), minsCambio_: ((minsCambioAntes-minsCambioDespues)/minsCambioAntes*100)}
+    let item={id_: id, minsParo_: minsParoAntes, minsParoDespues_: minsParoDespues, envases_: envasesAntes, envasesDespues_: envasesDespues, minsCambio_: minsCambioAntes, minsCambioDespues_: minsCambioDespues}
     console.warn("item", item)
     fetch(`http://localhost:3001/supervisors/update_progress/${user}`, {
       method: "put",
@@ -300,17 +300,52 @@ function Contents () {
               <Accordion.Item eventKey="7" className="item">
                 <Accordion.Header>Datos actuales</Accordion.Header>
                 <Accordion.Body>
-                  Operarios capacitados: {data[0].operarios_c}
-                  <br></br>
-                  Total de operarios: {data[0].total_operarios}
-                  <br></br>
-                  Mejoras implementadas: {data[0].mejoras_i}
-                  <br></br>
-                  Minutos de paro (%): {Math.trunc(data[0].minutos_de_paro)}
-                  <br></br>
-                  Envases desechados (%): {Math.trunc(data[0].envases_desechados)}
-                  <br></br>
-                  Minutos por cambio (%): {Math.trunc(data[0].minutos_por_cambio)}
+                  <Table striped bordered hover variant="light" className="tabla">
+                    <thead>
+                      <tr>
+                        <th>Indicador</th>
+                        <th>Valor actual</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Operarios capacitados</td>
+                        <td>{data[0].operarios_c}</td>
+                      </tr>
+                      <tr>
+                        <td>Total de operarios</td>
+                        <td>{data[0].total_operarios}</td>
+                      </tr>
+                      <tr>
+                        <td>Mejoras implementadas</td>
+                        <td>{data[0].mejoras_i}</td>
+                      </tr>
+                      <tr>
+                        <td>Minutos de paro sin TWI</td>
+                        <td>{data[0].minutos_de_paro}</td>
+                      </tr>
+                      <tr>
+                        <td>Minutos de paro con TWI</td>
+                        <td>{data[0].minutos_de_paro_despues}</td>
+                      </tr>
+                      <tr>
+                        <td>Envases desechados sin TWI</td>
+                        <td>{data[0].envases_desechados}</td>
+                      </tr>
+                      <tr>
+                        <td>Envases desechados con TWI</td>
+                        <td>{data[0].envases_desechados_despues}</td>
+                      </tr>
+                      <tr>
+                        <td>Minutos por cambio sin TWI</td>
+                        <td>{data[0].minutos_por_cambio}</td>
+                      </tr>
+                      <tr>
+                        <td>Minutos por cambio con TWI</td>
+                        <td>{data[0].minutos_por_cambio_despues}</td>
+                      </tr>
+                    </tbody>
+                  </Table>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion> 

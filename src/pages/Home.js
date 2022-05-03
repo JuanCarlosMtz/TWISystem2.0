@@ -89,10 +89,7 @@ function Home () {
     })
   }
 
-  
   const medal = setMedal();
-
-  updateMedal();
 
   if (medal === empty)
   {
@@ -102,16 +99,19 @@ function Home () {
   {
     var medalString = 'bronce';
   }
-
   else if (medal === silver)
   {
     var medalString = 'plata';
   }
-
   else if (medal === gold)
   {
     var medalString = 'oro';
   }
+  else{
+    var medalString = 'vacío';
+  }
+
+  updateMedal();
 
   return (
     <div>

@@ -54,7 +54,7 @@ function ViewDocuments () {
                 <Tab.Content>
                   {data.map(({ id }) => (
                     <Tab.Pane eventKey={id}>
-                      <Tables />
+                      <Tables id={id}/>
                     </Tab.Pane>
                   ))}
                 </Tab.Content>

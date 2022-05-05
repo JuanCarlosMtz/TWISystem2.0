@@ -4,20 +4,245 @@ import ji from '../icons/ji.png';
 import jm from '../icons/jm.png';
 import jr from '../icons/jr.png';
 import './Contents.css'
-import { Container, Row, Col, Accordion, Button, Form, Offcanvas, Table } from 'react-bootstrap'
+import { Container, Row, Col, Accordion, Button, Form, Modal, Table } from 'react-bootstrap'
 import Cookies from 'universal-cookie';
 
 function Contents () {
 
   const cookies = new Cookies();
 
+  const id = cookies.get('id');
+  const user = cookies.get('email');
+  const pwd = cookies.get('contrasenia');
+
+  const [selectedFile, setSelectedFile] = React.useState();
+  const [isFilePicked, setIsFilePicked] = React.useState(false);
+
+  const changeHandler = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setIsFilePicked(true);
+  };
+
+  function upload1JI()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JI');
+    formData.append("numero", 1);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+  function upload2JI()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JI');
+    formData.append("numero", 2);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+  function upload3JI()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JI');
+    formData.append("numero", 3);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+  function upload1JM()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JM');
+    formData.append("numero", 1);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+  function upload2JM()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JM');
+    formData.append("numero", 2);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+  function upload3JM()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JM');
+    formData.append("numero", 3);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+  function upload1JR()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JR');
+    formData.append("numero", 1);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+  function upload2JR()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JR');
+    formData.append("numero", 2);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+  function upload3JR()
+  {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("id", id);
+    formData.append("tipo", 'JR');
+    formData.append("numero", 3);
+    fetch("http://localhost:3001/entregables/add", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+
+  const [showJI1, setShowJI1] = React.useState(false);
+  const handleCloseJI1 = () => setShowJI1(false);
+  const handleShowJI1 = () => setShowJI1(true);
+
+  const [showJI2, setShowJI2] = React.useState(false);
+  const handleCloseJI2 = () => setShowJI2(false);
+  const handleShowJI2 = () => setShowJI2(true);
+
+  const [showJI3, setShowJI3] = React.useState(false);
+  const handleCloseJI3 = () => setShowJI3(false);
+  const handleShowJI3 = () => setShowJI3(true);
+
+  const [showJM1, setShowJM1] = React.useState(false);
+  const handleCloseJM1 = () => setShowJM1(false);
+  const handleShowJM1 = () => setShowJM1(true);
+
+  const [showJM2, setShowJM2] = React.useState(false);
+  const handleCloseJM2 = () => setShowJM2(false);
+  const handleShowJM2 = () => setShowJM2(true);
+
+  const [showJM3, setShowJM3] = React.useState(false);
+  const handleCloseJM3 = () => setShowJM3(false);
+  const handleShowJM3 = () => setShowJM3(true);
+
+  const [showJR1, setShowJR1] = React.useState(false);
+  const handleCloseJR1 = () => setShowJR1(false);
+  const handleShowJR1 = () => setShowJR1(true);
+
+  const [showJR2, setShowJR2] = React.useState(false);
+  const handleCloseJR2 = () => setShowJR2(false);
+  const handleShowJR2 = () => setShowJR2(true);
+
+  const [showJR3, setShowJR3] = React.useState(false);
+  const handleCloseJR3 = () => setShowJR3(false);
+  const handleShowJR3 = () => setShowJR3(true);
+
   const [data, setData] = React.useState([{"id":"id"},{"nombre":"nombre"},{"apellido":"apellido"},{"planta":"planta"},{"email":"email"},{"contrasenia":"contrasenia"},{"id_s":"id_s"},{"p_jm":0},{"p_ji":0},{"p_jr":0},{"balance":0},{"operarios_c":0},{"total_operarios":0},{"mejoras_i":0},{"total_pts":0}])
   const [error, setError] = React.useState("")
   const [loading, setLoading] = React.useState(true)
-
-  const [show, setShow] = React.useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const [operarios, setOperarios] = React.useState();
   const [totalOperarios, setTotalOperarios] = React.useState();
@@ -29,10 +254,6 @@ function Contents () {
   const [envasesDespues, setEnvasesDespues] = React.useState();
   const [minsCambioAntes, setMinsCambioAntes] = React.useState();
   const [minsCambioDespues, setMinsCambioDespues] = React.useState();
-
-  const id = cookies.get('id');
-  const user = cookies.get('email');
-  const pwd = cookies.get('contrasenia');
 
   React.useEffect(() => {
     const url = `http://localhost:3001/supervisors/${user}/${pwd}`;
@@ -127,9 +348,9 @@ function Contents () {
               <Accordion.Item eventKey="0" className="item">
                 <Accordion.Header>Entregables Job Instructions</Accordion.Header>
                 <Accordion.Body>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 1  </Button>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 2  </Button>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 3  </Button>
+                  <Button onClick={handleShowJI1} variant="dark" className="botonCursos"> Entregable 1  </Button>
+                  <Button onClick={handleShowJI2} variant="dark" className="botonCursos"> Entregable 2  </Button>
+                  <Button onClick={handleShowJI3} variant="dark" className="botonCursos"> Entregable 3  </Button>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
@@ -141,9 +362,9 @@ function Contents () {
               <Accordion.Item eventKey="0" className="item">
                 <Accordion.Header>Entregables sobre Job Methods</Accordion.Header>
                 <Accordion.Body>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 1  </Button>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 2  </Button>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 3  </Button>
+                  <Button onClick={handleShowJM1} variant="dark" className="botonCursos"> Entregable 1  </Button>
+                  <Button onClick={handleShowJM2} variant="dark" className="botonCursos"> Entregable 2  </Button>
+                  <Button onClick={handleShowJM3} variant="dark" className="botonCursos"> Entregable 3  </Button>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
@@ -155,9 +376,9 @@ function Contents () {
               <Accordion.Item eventKey="0" className="item">
                 <Accordion.Header>Entregables Job Relations</Accordion.Header>
                 <Accordion.Body>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 1  </Button>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 2  </Button>
-                  <Button onClick={handleShow} variant="dark" className="botonCursos"> Entregable 3  </Button>
+                  <Button onClick={handleShowJR1} variant="dark" className="botonCursos"> Entregable 1  </Button>
+                  <Button onClick={handleShowJR2} variant="dark" className="botonCursos"> Entregable 2  </Button>
+                  <Button onClick={handleShowJR3} variant="dark" className="botonCursos"> Entregable 3  </Button>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
@@ -351,15 +572,474 @@ function Contents () {
             </Accordion> 
           </Col>
 
-
-          <Offcanvas show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Realizar entregables</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <button>Cargar archivo</button>
-            </Offcanvas.Body>
-          </Offcanvas>
+          <Modal
+            show={showJI1}
+            onHide={handleCloseJI1}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 1 de Job Instructions</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload1JI}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showJI2}
+            onHide={handleCloseJI2}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 2 de Job Instructions</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload2JI}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showJI3}
+            onHide={handleCloseJI3}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 3 de Job Instructions</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload3JI}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showJM1}
+            onHide={handleCloseJM1}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 1 de Job Methods</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload1JM}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showJM2}
+            onHide={handleCloseJM2}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 2 de Job Methods</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload2JM}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showJM3}
+            onHide={handleCloseJM3}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 3 de Job Methods</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload3JM}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showJR1}
+            onHide={handleCloseJR1}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 1 de Job Relations</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload1JR}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showJR2}
+            onHide={handleCloseJR2}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 2 de Job Relations</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload2JR}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showJR3}
+            onHide={handleCloseJR3}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Agregar Entregable 3 de Job Relations</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                {isFilePicked ? (
+                  <div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Nombre del archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.name} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tipo de archivo:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={selectedFile.type} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Tamaño del archivo en bytes:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Escribir opción correcta"
+                        value={selectedFile.size} />
+                    </Form.Group>
+                  </div>
+                ) : (
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Seleccionar el archivo para ver sus detalles</Form.Label>
+                  </Form.Group>
+                )}
+                <Button variant="primary" onClick={upload3JR}>
+                  Subir archivo
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
         </Row>
       </Container>
     </div>

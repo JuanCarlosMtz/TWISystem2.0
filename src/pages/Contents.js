@@ -6,6 +6,7 @@ import jr from '../icons/jr.png';
 import './Contents.css'
 import { Container, Row, Col, Accordion, Button, Form, Modal, Table } from 'react-bootstrap'
 import Cookies from 'universal-cookie';
+import axios from 'axios';
 
 function Contents () {
 
@@ -23,6 +24,216 @@ function Contents () {
     setIsFilePicked(true);
   };
 
+  const [grade1JI, setGrade1JI] = React.useState('');
+  const [grade2JI, setGrade2JI] = React.useState('');
+  const [grade3JI, setGrade3JI] = React.useState('');
+  const [grade1JM, setGrade1JM] = React.useState('');
+  const [grade2JM, setGrade2JM] = React.useState('');
+  const [grade3JM, setGrade3JM] = React.useState('');
+  const [grade1JR, setGrade1JR] = React.useState('');
+  const [grade2JR, setGrade2JR] = React.useState('');
+  const [grade3JR, setGrade3JR] = React.useState('');
+
+  function getGrade1JI()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JI/1`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade1JI(cal)
+      }
+      else{
+        setGrade1JI('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+  function getGrade2JI()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JI/2`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade2JI(cal)
+      }
+      else{
+        setGrade2JI('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+  function getGrade3JI()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JI/3`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade3JI(cal)
+      }
+      else{
+        setGrade3JI('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+  function getGrade1JM()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JM/1`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade1JM(cal)
+      }
+      else{
+        setGrade1JM('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+  function getGrade2JM()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JM/2`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade2JM(cal)
+      }
+      else{
+        setGrade2JM('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+  function getGrade3JM()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JM/3`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade3JM(cal)
+      }
+      else{
+        setGrade3JM('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+  function getGrade1JR()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JR/1`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade1JR(cal)
+      }
+      else{
+        setGrade1JR('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+  function getGrade2JR()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JR/2`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade2JR(cal)
+      }
+      else{
+        setGrade2JR('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+  function getGrade3JR()
+  {
+    axios.get(`http://localhost:3001/entregables/${id}/JR/3`)
+    .then(response => {
+      return response.data;
+    })
+    .then(response => {
+      if(response.length >= 1)
+      {
+        var rsp = response[0];
+        let cal = rsp.calificacion;
+        setGrade3JR(cal)
+      }
+      else{
+        setGrade3JR('NA')
+      }  
+    })
+    .catch(error => {
+      console.log(error);
+    }) 
+  };
+
+  getGrade1JI();
+  getGrade2JI();
+  getGrade3JI();
+  getGrade1JM();
+  getGrade2JM();
+  getGrade3JM();
+  getGrade1JR();
+  getGrade2JR();
+  getGrade3JR();
+
   function upload1JI()
   {
     const formData = new FormData();
@@ -30,18 +241,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JI');
     formData.append("numero", 1);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JI/1`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
   function upload2JI()
   {
@@ -50,18 +288,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JI');
     formData.append("numero", 2);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JI/2`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
   function upload3JI()
   {
@@ -70,18 +335,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JI');
     formData.append("numero", 3);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JI/3`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
   function upload1JM()
   {
@@ -90,18 +382,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JM');
     formData.append("numero", 1);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JM/1`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
   function upload2JM()
   {
@@ -110,18 +429,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JM');
     formData.append("numero", 2);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JM/2`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
   function upload3JM()
   {
@@ -130,18 +476,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JM');
     formData.append("numero", 3);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JM/3`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
   function upload1JR()
   {
@@ -150,18 +523,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JR');
     formData.append("numero", 1);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JR/1`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
   function upload2JR()
   {
@@ -170,18 +570,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JR');
     formData.append("numero", 2);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JR/2`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
   function upload3JR()
   {
@@ -190,18 +617,45 @@ function Contents () {
     formData.append("id", id);
     formData.append("tipo", 'JR');
     formData.append("numero", 3);
-    fetch("http://localhost:3001/entregables/add", {
-      method: "POST",
-      body: formData,
+
+    axios.get(`http://localhost:3001/entregables/${id}/JR/3`)
+    .then(response => {
+      return response.data;
     })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Success:", result);
-      window.location.reload();
+    .then(response => {
+      if(response.length >= 1)
+      {
+        fetch("http://localhost:3001/entregables/addAgain", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+      else{
+        fetch("http://localhost:3001/entregables/add", {
+          method: "POST",
+          body: formData,
+        })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch(error => {
+      console.log(error);
+    }) 
   };
 
   const [showJI1, setShowJI1] = React.useState(false);
@@ -348,9 +802,9 @@ function Contents () {
               <Accordion.Item eventKey="0" className="item">
                 <Accordion.Header>Entregables Job Instructions</Accordion.Header>
                 <Accordion.Body>
-                  <Button onClick={handleShowJI1} variant="dark" className="botonCursos"> Entregable 1  </Button>
-                  <Button onClick={handleShowJI2} variant="dark" className="botonCursos"> Entregable 2  </Button>
-                  <Button onClick={handleShowJI3} variant="dark" className="botonCursos"> Entregable 3  </Button>
+                  <Button onClick={handleShowJI1} variant="dark" className="botonCursos"> Entregable 1 | Calificación: {grade1JI}</Button>
+                  <Button onClick={handleShowJI2} variant="dark" className="botonCursos"> Entregable 2 | Calificación: {grade2JI} </Button>
+                  <Button onClick={handleShowJI3} variant="dark" className="botonCursos"> Entregable 3 | Calificación: {grade3JI} </Button>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
@@ -362,9 +816,9 @@ function Contents () {
               <Accordion.Item eventKey="0" className="item">
                 <Accordion.Header>Entregables sobre Job Methods</Accordion.Header>
                 <Accordion.Body>
-                  <Button onClick={handleShowJM1} variant="dark" className="botonCursos"> Entregable 1  </Button>
-                  <Button onClick={handleShowJM2} variant="dark" className="botonCursos"> Entregable 2  </Button>
-                  <Button onClick={handleShowJM3} variant="dark" className="botonCursos"> Entregable 3  </Button>
+                  <Button onClick={handleShowJM1} variant="dark" className="botonCursos"> Entregable 1 | Calificación: {grade1JM} </Button>
+                  <Button onClick={handleShowJM2} variant="dark" className="botonCursos"> Entregable 2 | Calificación: {grade2JM} </Button>
+                  <Button onClick={handleShowJM3} variant="dark" className="botonCursos"> Entregable 3 | Calificación: {grade3JM} </Button>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
@@ -376,9 +830,9 @@ function Contents () {
               <Accordion.Item eventKey="0" className="item">
                 <Accordion.Header>Entregables Job Relations</Accordion.Header>
                 <Accordion.Body>
-                  <Button onClick={handleShowJR1} variant="dark" className="botonCursos"> Entregable 1  </Button>
-                  <Button onClick={handleShowJR2} variant="dark" className="botonCursos"> Entregable 2  </Button>
-                  <Button onClick={handleShowJR3} variant="dark" className="botonCursos"> Entregable 3  </Button>
+                  <Button onClick={handleShowJR1} variant="dark" className="botonCursos"> Entregable 1 | Calificación: {grade1JR} </Button>
+                  <Button onClick={handleShowJR2} variant="dark" className="botonCursos"> Entregable 2 | Calificación: {grade2JR} </Button>
+                  <Button onClick={handleShowJR3} variant="dark" className="botonCursos"> Entregable 3 | Calificación: {grade3JR} </Button>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>

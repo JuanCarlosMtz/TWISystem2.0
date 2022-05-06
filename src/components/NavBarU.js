@@ -62,7 +62,7 @@ function NavBarU () {
               <Nav.Link as={Link} to={"/game"}>Juego</Nav.Link>
               <Nav.Link as={Link} to={"/ranking"}>Ranking</Nav.Link>
               <Nav.Link as={Link} to={"/contents"}>Documentos</Nav.Link>
-              <Nav.Link as={Link} to={"/abouttwi"}>Sobre TWI</Nav.Link>
+              {/*<Nav.Link as={Link} to={"/abouttwi"}>Sobre TWI</Nav.Link>*/}
             </Nav>
             <Nav className="ms-auto">
               <div>

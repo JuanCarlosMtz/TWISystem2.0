@@ -8,6 +8,8 @@ import Cookies from 'universal-cookie';
 
 function DeliveredTables ({id}) {
 
+  const url = "localhost:3001";
+
   const cookies = new Cookies();
 
   const [grade, setGrade] = React.useState('')
@@ -74,8 +76,47 @@ function DeliveredTables ({id}) {
     }) 
   }, [])
       
-  function gradeDocument(id_entregable)
+  function gradeDocument(id_entregable, id_s, tipo)
   {
+    let pts = 0;
+    let balance = 0;
+
+    if (tipo === 'JI')
+    {
+      tipo = 'p_ji';
+    }
+    else if(tipo === 'JM'){
+      tipo = 'p_jm';
+    }
+    else{
+      tipo = 'p_jr';
+    }
+
+    if (grade >= 70)
+    {
+      pts = 500;
+      balance = 500;
+    }
+    else{
+      pts = 0;
+      balance = 0;
+    }
+
+    let item0 = {id_s, tipo, pts, balance}
+    fetch(`http://localhost:3001/supervisors/updatePts/${id_s}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": "token-value",
+      },
+      body: JSON.stringify(item0)
+    })
+    .then((result) => {
+      result.json().then((resp) => {
+        console.warn(resp)
+      })
+    }) 
+
     let item={id_entregable, grade, id_a: cookies.get('id')}
     console.warn("item", item)
     fetch(`http://localhost:3001/entregables/grade`, {
@@ -92,6 +133,16 @@ function DeliveredTables ({id}) {
       })
       window.location.reload();
     })  
+  }
+
+  function isGraded(calificacion)
+  {
+    if(calificacion >= 70){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   return (
@@ -113,16 +164,19 @@ function DeliveredTables ({id}) {
                       <th>Entregable</th>
                       <th>Enlace</th>
                       <th>Calificación</th>
-                      <th>Calificar</th>
+                      <th>Calificar/Reasignar</th>
                     </tr>
                   </thead>
-                  {dataJI.map(({ id_entregable, no_entregable, enlace, calificacion }) => (
+                  {dataJI.map(({ id_entregable, no_entregable, enlace, calificacion, id_s, tipo }) => (
                   <tbody>
                     <tr>
                       <td>{no_entregable}</td>
-                      <td><a href={enlace}>Ver</a></td>
+                      <td><a href={url.concat(enlace)}>Ver</a></td>
                       <td>{calificacion}</td>
                       <td>
+                        {isGraded(calificacion) ? (
+                          <Button variant="dark" className="botonEntregables2">Calificado</Button>
+                        ) : (
                         <Form>
                           <div className="input">
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -133,8 +187,9 @@ function DeliveredTables ({id}) {
                               onChange={(e) => {setGrade(e.target.value)}} />
                             </Form.Group>
                           </div>
-                          <Button onClick={() => gradeDocument(id_entregable)} variant="dark" className="botonEntregables">Calificar</Button>
+                          <Button onClick={() => gradeDocument(id_entregable, id_s, tipo)} variant="dark" className="botonEntregables">Calificar</Button>
                         </Form>
+                        )}
                       </td>
                     </tr>
                   </tbody>
@@ -160,16 +215,19 @@ function DeliveredTables ({id}) {
                       <th>Entregable</th>
                       <th>Enlace</th>
                       <th>Calificación</th>
-                      <th>Calificar</th>
+                      <th>Calificar/Reasignar</th>
                     </tr>
                   </thead>
-                  {dataJM.map(({ id_entregable, no_entregable, enlace, calificacion }) => (
+                  {dataJM.map(({ id_entregable, no_entregable, enlace, calificacion, id_s, tipo }) => (
                   <tbody>
                     <tr>
                       <td>{no_entregable}</td>
-                      <td><a href={enlace}>Ver</a></td>
+                      <td><a href={url.concat(enlace)}>Ver</a></td>
                       <td>{calificacion}</td>
                       <td>
+                        {isGraded(calificacion) ? (
+                          <Button variant="dark" className="botonEntregables2">Calificado</Button>
+                        ) : (
                         <Form>
                           <div className="input">
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -180,8 +238,9 @@ function DeliveredTables ({id}) {
                               onChange={(e) => {setGrade(e.target.value)}} />
                             </Form.Group>
                           </div>
-                          <Button onClick={() => gradeDocument(id_entregable)} variant="dark" className="botonEntregables">Calificar</Button>
+                          <Button onClick={() => gradeDocument(id_entregable, id_s, tipo)} variant="dark" className="botonEntregables">Calificar</Button>
                         </Form>
+                        )}
                       </td>
                     </tr>
                   </tbody>
@@ -207,16 +266,19 @@ function DeliveredTables ({id}) {
                       <th>Entregable</th>
                       <th>Enlace</th>
                       <th>Calificación</th>
-                      <th>Calificar</th>
+                      <th>Calificar/Reasignar</th>
                     </tr>
                   </thead>
-                  {dataJR.map(({ id_entregable, no_entregable, enlace, calificacion }) => (
+                  {dataJR.map(({ id_entregable, no_entregable, enlace, calificacion, id_s, tipo }) => (
                   <tbody>
                     <tr>
                       <td>{no_entregable}</td>
-                      <td><a href={enlace}>Ver</a></td>
+                      <td><a href={url.concat(enlace)}>Ver</a></td>
                       <td>{calificacion}</td>
                       <td>
+                        {isGraded(calificacion) ? (
+                          <Button variant="dark" className="botonEntregables2">Calificado</Button>
+                        ) : (
                         <Form>
                           <div className="input">
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -227,8 +289,9 @@ function DeliveredTables ({id}) {
                               onChange={(e) => {setGrade(e.target.value)}} />
                             </Form.Group>
                           </div>
-                          <Button onClick={() => gradeDocument(id_entregable)} variant="dark" className="botonEntregables">Calificar</Button>
+                          <Button onClick={() => gradeDocument(id_entregable, id_s, tipo)} variant="dark" className="botonEntregables">Calificar</Button>
                         </Form>
+                        )}
                       </td>
                     </tr>
                   </tbody>

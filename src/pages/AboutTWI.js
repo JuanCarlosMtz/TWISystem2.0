@@ -5,7 +5,12 @@ function AboutTWI () {
   return (
     <div>
       <NavBarU />
-        <h1>AboutTWI</h1>
+        <iframe id="inlineFrameExample"
+          title="Inline Frame Example"
+          width="1000"
+          height="800"
+          src="https://www.instituto-twi.com/metodologia-twi/historia/">
+        </iframe>
     </div>
   );
 };

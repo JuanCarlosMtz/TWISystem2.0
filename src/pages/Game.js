@@ -12,24 +12,9 @@ function Game () {
   return (
     <div>
       <NavBarU />
-      <div className="game" >
-        <Carousel>
-          <Carousel.Item>
-            <img className="d-block w-100" src={map} alt="First slide" />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src={game1} alt="Second slide" />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src={game12} alt="Third slide" />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src={game2} alt="Fourth slide" />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src={game21} alt="Fifth slide" />
-          </Carousel.Item>
-        </Carousel>
+      <div>
+        <br/>
+          <iframe width="950" height="590" src="https://i.simmer.io/@JCarlosMtzZ/arcaadventures" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   );
